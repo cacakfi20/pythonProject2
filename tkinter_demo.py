@@ -1,14 +1,16 @@
 import tkinter as tk
 
+def add(n):
+    n += 1
+    label = tk.Label(text=f"{n}")
+    label.pack()
+
 window = tk.Tk()
 window.geometry("600x300")
 window.title("v.1.1.")
 
-label = tk.Label(text="Je to možný")
-label.pack()
-
-button = tk.Button()
-button.geometry
+button = tk.Button(window, text="Klikni pro přičtení", command=lambda:add(number))
+button.pack()
 
 window.mainloop()
 
