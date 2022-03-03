@@ -1,8 +1,10 @@
 import tkinter as tk
 
+
+number = [0]
 def add(n):
-    n += 1
-    label = tk.Label(text=f"{n}")
+    n.append(n[-1] + 1)
+    label = tk.Label(text=f"{n[-1]}")
     label.pack()
 
 window = tk.Tk()
@@ -13,4 +15,3 @@ button = tk.Button(window, text="Klikni pro přičtení", command=lambda:add(num
 button.pack()
 
 window.mainloop()
-
