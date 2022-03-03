@@ -6,6 +6,7 @@ def add(n):
     label = tk.Label(text=f"{n[-1]}")
     label.pack()
 
+number = 0
 window = tk.Tk()
 window.geometry("600x300")
 window.title("v.1.1.")
@@ -24,5 +25,8 @@ uzivatel_entry = tk.Entry(
 
 )
 uzivatel_entry.pack()
+
+label = tk.Label(text=f"{number}")
+label.pack()
 
 window.mainloop()
