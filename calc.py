@@ -1,10 +1,9 @@
 import tkinter as tk
-from tkinter import messagebox
-
 
 window = tk.Tk()
-window.geometry("185x300")
+window.geometry("200x290")
 window.title("Kalkulačka")
+window.resizable(False, False)
 
 
 def ac():
@@ -18,27 +17,17 @@ def delete():
 def znak(znk):
     ent.insert(tk.END, znk)
 
-
 def equal():
-    warning = 0
-    for character in ent.get():
-        if character.isalpha():
-            tk.messagebox.showinfo(
-                title="WARNING!",
-                message=f"'{character}' není číslo!"
-            )
-            new_ent = ent.get().replace(character, "")
-            ent.delete("0", tk.END)
-            ent.insert(tk.END, new_ent)
-            warning = 1
-    if warning == 0:
+    try:
         vysledek = eval(ent.get())
         ent.delete("0", tk.END)
         ent.insert(tk.END, vysledek)
-
+    except:
+        ent.delete(0, tk.END)
+        ent.insert(0, "Syntax error")
 
 ent = tk.Entry(
-    width=30,
+    width=23,
     bg="grey",
     fg="white",
     font=("Calibri", 12)
@@ -191,12 +180,12 @@ btn_plus.grid(column=3, row=4, sticky="W")
 
 btn_0 = tk.Button(
     text="0",
-    width=12,
+    width=11,
     height=3,
     bg="dark grey",
     command=lambda: znak(0)
 )
-btn_0.grid(column=0, columnspan=2, row=5, sticky="W")
+btn_0.grid(column=0, columnspan=3, row=5, sticky="W")
 
 btn_carka = tk.Button(
     text=",",
